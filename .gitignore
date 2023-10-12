@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+.Python
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swm
+
+# Compiled Python files
+*.pyo
+*.pyd
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Temporary files
+*.bak
+
+# Environment Variables
+.env
+
+# Byte-compiled files from source
+**/__pycache__/
+*.pyc
+
+# Ignore local development settings
+local_settings.py
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyCharm files
+.idea/
+
+# Mac-specific
+.DS_Store
+
+# Compiled Python files
+*.pyc
+
+# Node.js
+node_modules/

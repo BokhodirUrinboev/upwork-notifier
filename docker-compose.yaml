@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  job-notifier:
+    build:
+      context: .
+    command: python main.py
+    restart: on-failure
+    env_file:
+      - .env
