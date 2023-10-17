@@ -14,6 +14,7 @@ load_dotenv()
 # Retrieve environment variables
 BOT_TOKEN = str(getenv("TELEGRAM_BOT_TOKEN"))
 TELEGRAM_CHAT_ID = getenv("TELEGRAM_CHAT_ID")
+UPWORK_RCC_FIGMA_TO_WEBSITE_URL = str(getenv("UPWORK_RCC_FIGMA_TO_WEBSITE_URL"))
 UPWORK_RSS_REACT_URL = str(getenv("UPWORK_RSS_REACT_URL"))
 UPWORK_RSS_HTML_CSS_URL = str(getenv("UPWORK_RSS_HTML_CSS_URL"))
 
@@ -37,15 +38,17 @@ async def send_job_listings(category_name, rss_url):
         # Send the message with the inline button
         await bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message,
                                reply_markup=inline_keyboard)
+        break
 
 # Define a periodic job to fetch and send job listings
 
 
 async def periodic_job():
     while True:
+        await send_job_listings("Figma to Website", UPWORK_RCC_FIGMA_TO_WEBSITE_URL)
         await send_job_listings("React", UPWORK_RSS_REACT_URL)
         await send_job_listings("HTML/CSS", UPWORK_RSS_HTML_CSS_URL)
-        await asyncio.sleep(3600)  # Repeat every hour (adjust the interval as needed)
+        await asyncio.sleep(60)  # Repeat every hour (adjust the interval as needed)
 
 
 if __name__ == "__main__":
